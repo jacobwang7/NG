@@ -3,18 +3,18 @@ const router = express.Router();
 const metroController = require('../controllers/metroController');
 
 // Route to create a new metro
-router.post('/createmetro', metroController.createmetro);
+router.post('/createMetro', metroController.createMetro);
 
 // Route to get all metros
-router.get('/getmetros', metroController.getAllmetros);
+router.get('/getMetros', metroController.getAllMetros);
 
 // Route to get a single metro by ID
-router.get('/getmetro/:id', metroController.getmetroById);
+router.get('/getMetro/:id', metroController.getMetroById);
 
 // Route to update a metro by ID
-router.put('/updatemetro/:id', metroController.updatemetro);
+router.put('/updateMetro/:id', metroController.updateMetro);
 
 // Route to delete a metro by ID
-router.delete('/deletemetro/:id', metroController.deletemetro);
+router.delete('/deleteMetro/:id', metroController.deleteMetro);
 
 module.exports = router;

@@ -21,11 +21,11 @@ exports.getAllMetros = async (req, res) => {
 
 exports.getMetroById = async (req, res) => {
     try {
-        const Metro = await Metro.findById(req.params.id);
-        if (!Metro) {
+        const metro = await Metro.findById(req.params.id);
+        if (!metro) {
             return res.status(404).json({ message: 'Metro not found' });
         }
-        res.json(Metro);
+        res.json(metro);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
