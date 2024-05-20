@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
-const metroRoutes = require('./routes/metroRoutes')
+const metroRoutes = require('./routes/metroRoutes');
 require('dotenv').config();
 
 const app = express();

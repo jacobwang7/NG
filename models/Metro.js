@@ -3,14 +3,21 @@ const Schema = mongoose.Schema;
 
 const metroSchema = new Schema({
     cities: [{
-        name: String,
-        state: String,
-        required: true
+        name: {
+            type: String,
+            required: true
+        },
+        state: {
+            type: String,
+            required: true
+        }
     }],
-    States: [{
-        name: String,
-        required: true
-    }],
+    states: [{
+        name: {
+            type: String,
+            required: true
+        }
+    }]
 });
 
 const Metro = mongoose.model('Metro', metroSchema);
