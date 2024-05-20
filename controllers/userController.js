@@ -44,7 +44,7 @@ exports.getValidPotentialUsers = async (req, res) => {
     try {
         const currentUser = await User.find(req.body.currentUserId);
         const users = await User.find()
-            .where('username').ne(req.body.currentUser.username)
+            .where('username').ne(currentUser.username)
             .where('_id').nin(currentUser.visited)
             .limit(200); 
         if (!users) {
