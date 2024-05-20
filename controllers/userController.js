@@ -40,6 +40,22 @@ exports.getUserById = async (req, res) => {
     }
 };
 
+exports.getValidPotentialUsers = async (req, res) => {
+    try {
+        const currentUser = await User.find(req.body.currentUserId);
+        const users = await User.find()
+            .where('username').ne(req.body.currentUser.username)
+            .where('_id').nin(currentUser.visited)
+            .limit(200); 
+        if (!users) {
+            return res.status(404).json({ message: 'Users not found' });
+        }
+        res.json(user);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+}
+
 exports.updateUser = async (req, res) => {
     try {
         const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });

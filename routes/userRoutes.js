@@ -17,4 +17,7 @@ router.put('/updateUser/:id', userController.updateUser);
 // Route to delete a user by ID
 router.delete('/deleteUser/:id', userController.deleteUser);
 
+// Route to get potential valid users
+router.get('/getValidPotentialUsers', userController.getValidPotentialUsers);
+
 module.exports = router;
