@@ -8,7 +8,7 @@ const metroSchema = new Schema({
         required: true
     }],
     States: [{
-        type: String,
+        name: String,
         required: true
     }],
 });
