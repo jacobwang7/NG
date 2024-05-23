@@ -28,7 +28,8 @@ exports.getSentFriendRequests = async (req, res) => {
             .where('from')
             .equals(req.params.id)
             .where('open')
-            .equals(true);
+            .equals(true)
+            .populate('from', 'to');
         res.status(200).json(friendRequests);
     } catch (err) {
         res.status(500).json({ message: err.message });
@@ -41,7 +42,8 @@ exports.getReceivedFriendRequests = async (req, res) => {
             .where('to')
             .equals(req.params.id)
             .where('open')
-            .equals(true);
+            .equals(true)
+            .populate('from', 'to');
         res.status(200).json(friendRequests);
     } catch (err) {
         res.status(500).json({ message: err.message });
@@ -50,7 +52,7 @@ exports.getReceivedFriendRequests = async (req, res) => {
 
 exports.getFriendRequestById = async (req, res) => {
     try {
-        const friendRequest = await FriendRequest.findById(req.params.id);
+        const friendRequest = await FriendRequest.findById(req.params.id).populate('from', 'to');
         if (!friendRequest) {
             return res.status(404).json({ message: 'Friend Request not found' });
         }
