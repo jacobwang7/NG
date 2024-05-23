@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const metroRoutes = require('./routes/metroRoutes');
+const friendRequestRoutes = require('./routes/friendRequestRoutes');
 require('dotenv').config();
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.json());
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/metros', metroRoutes);
+app.use('/api/friendRequests', friendRequestRoutes)
 
 mongoose.connect(uri, {
     useNewUrlParser: true,
